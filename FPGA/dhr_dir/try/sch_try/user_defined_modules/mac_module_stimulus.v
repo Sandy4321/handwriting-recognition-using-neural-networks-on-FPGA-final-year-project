@@ -26,7 +26,7 @@ module mac_module_stimulus (
 		reg [17:0] DATA_B;
 		wire [47:0] DATA_P;
 		reg MAC_START_OPERATION;
-		// testing_related_local_signals
+		// testing_related_local_modules
 		reg register_count ;
 
 	// module instantiations
@@ -60,14 +60,11 @@ module mac_module_stimulus (
 	always @(posedge(CLK),posedge(RESET)) begin
 
 		if(RESET) begin
-			// tx
 			TX_START_TRANSMISSION = 0;
 			TX_DATA_IN = 0;
-			// dsp
 			DATA_A = 0;
 			DATA_B = 0;
 			MAC_START_OPERATION = 0;
-			// local
 			register_count = 0;
 		end // if(RESET)
 		else if(RX_DONE_TICK) begin
